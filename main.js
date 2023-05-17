@@ -26,7 +26,7 @@ function validateFunctions(...functionNames) {
   }
 }
 
-function enableFeatureIfPossible(featureName, featureFunction) {
+function enableFeatureIfSupported(featureName, featureFunction) {
   // Try to run the code inside the try block. if an error occurs or is thrown then run the code in the catch block
   try {
     // Run the imagePopUp function
@@ -82,8 +82,13 @@ function imagePopUp() {
   // Select all projects nodes
   const projects = document.querySelector(".section--projects");
 
+  console.log(projects);
+
+  console.log(document[projects]);
+
   // Validate that project nodes were found
-  if (typeof (document[projects]) !== "Element") {
+  if (projects === null) {
+    console.log("111111");
     // No projects were found so no need to continue running this function
     return;
   }
@@ -91,7 +96,8 @@ function imagePopUp() {
   const projectImages = projects.querySelectorAll("img");
 
   // Validate that images exist within projects
-  if (typeof (document[projects]) !== "NodeList") {
+  if (projects === null) {
+    console.log("22222");
     // No images were found within projects so no need to continue running this function
     return;
   }
@@ -120,8 +126,9 @@ function imagePopUp() {
 
       // Create an image tag
       const imageTag = document.createElement("img");
+
       // Set the src for the new image to the same as the one the user clicked
-      imageTag.src = image.target.src;
+      imageTag.src = image.target.src.replace("--thumbnail", "");
 
       // Put the newly created image inside the div
       divTag.appendChild(imageTag);
@@ -161,6 +168,6 @@ function scrollReveal() {
   });
 }
 
-enableFeatureIfPossible("Theme switcher", themeSwitcher);
-enableFeatureIfPossible("Image pop up", imagePopUp);
-enableFeatureIfPossible("Scroll reveal", scrollReveal);
+enableFeatureIfSupported("Theme switcher", themeSwitcher);
+enableFeatureIfSupported("Image pop up", imagePopUp);
+enableFeatureIfSupported("Scroll reveal", scrollReveal);
