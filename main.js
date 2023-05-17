@@ -26,6 +26,51 @@ function validateFunctions(...functionNames) {
   }
 }
 
+function enableFeatureIfPossible(featureName, featureFunction) {
+  // Try to run the code inside the try block. if an error occurs or is thrown then run the code in the catch block
+  try {
+    // Run the imagePopUp function
+    featureFunction();
+  } catch (err) {
+    // Log the error to the console, so if a user is unable to use this feature you can tell them to look in the console to see why it isn't working for them.
+    console.log(featureName + " is disabled because: " + err);
+  }
+}
+
+// Whenever a project image is clicked on a full screen preview should be displayed
+function themeSwitcher() {
+  // Make sure that the visitors browser supports these functions
+  validateFunctions(
+    features.querySelector,
+    features.querySelectorAll
+  );
+
+  const headerTag = document.querySelector("header");
+
+  const imageTag = document.createElement("button");
+  imageTag.textContent = "Light theme";
+  imageTag.setAttribute("id", "theme-toggle");
+  imageTag.setAttribute("class", "theme-toggle");
+
+  imageTag.addEventListener("click", imageTag => {
+    const htmlTag = document.querySelector('html');
+    
+    const currentTheme = htmlTag.dataset.theme;
+
+    const themeToggleButton = document.querySelector("#theme-toggle");
+    
+    if (currentTheme === "dark") {
+      htmlTag.dataset.theme = "light";
+      themeToggleButton.textContent = "Dark theme";
+    } else {
+      htmlTag.dataset.theme = "dark";
+      themeToggleButton.textContent = "Light theme";
+    }
+  });
+  
+  headerTag.appendChild(imageTag);
+}
+
 // Whenever a project image is clicked on a full screen preview should be displayed
 function imagePopUp() {
   // Make sure that the visitors browser supports these functions
@@ -96,22 +141,27 @@ function scrollReveal() {
     features.querySelector,
     features.querySelectorAll
   );
+  const elementsArray = document.querySelectorAll(".component--project-card");
+  elementsArray.forEach(element => {
+    element.classList.add("hidden");
+  });
+  
+  window.addEventListener('scroll', fadeIn => {
+    let elementsArray = document.querySelectorAll(".component--project-card");
+    
+    for (var i = 0; i < elementsArray.length; i++) {
+          var elem = elementsArray[i]
+          var distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
+          if (distInView < 0) {
+              elem.classList.remove("hidden");
+          } else {
+              elem.classList.add("hidden");
+          }
+      }
+  } );
+  fadeIn();
 }
 
-// Try to run the code inside the try block. if an error occurs or is thrown then run the code in the catch block
-try {
-  // Run the imagePopUp function
-  imagePopUp();
-} catch (err) {
-  // Log the error to the console, so if a user is unable to use this feature you can tell them to look in the console to see why it isn't working for them.
-  console.log("Image pop up is disabled because: " + err);
-}
-
-// Try to run the code inside the try block. if an error occurs or is thrown then run the code in the catch block
-try {
-  // Run scrollReveal function
-  scrollReveal();
-} catch (err) {
-  // Log the error to the console, so if a user is unable to use this feature you can tell them to look in the console to see why it isn't working for them.
-  console.log("Scroll slide is disabled because: " + err);
-}
+enableFeatureIfPossible("Theme switcher", themeSwitcher);
+enableFeatureIfPossible("Image pop up", imagePopUp);
+enableFeatureIfPossible("Scroll reveal", scrollReveal);
