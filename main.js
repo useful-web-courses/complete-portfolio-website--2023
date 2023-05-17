@@ -54,11 +54,11 @@ function themeSwitcher() {
 
   imageTag.addEventListener("click", imageTag => {
     const htmlTag = document.querySelector('html');
-    
+
     const currentTheme = htmlTag.dataset.theme;
 
     const themeToggleButton = document.querySelector("#theme-toggle");
-    
+
     if (currentTheme === "dark") {
       htmlTag.dataset.theme = "light";
       themeToggleButton.textContent = "Dark theme";
@@ -67,7 +67,7 @@ function themeSwitcher() {
       themeToggleButton.textContent = "Light theme";
     }
   });
-  
+
   headerTag.appendChild(imageTag);
 }
 
@@ -145,21 +145,20 @@ function scrollReveal() {
   elementsArray.forEach(element => {
     element.classList.add("hidden");
   });
-  
+
   window.addEventListener('scroll', fadeIn => {
     let elementsArray = document.querySelectorAll(".component--project-card");
-    
+
     for (var i = 0; i < elementsArray.length; i++) {
-          var elem = elementsArray[i]
-          var distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
-          if (distInView < 0) {
-              elem.classList.remove("hidden");
-          } else {
-              elem.classList.add("hidden");
-          }
+      var elem = elementsArray[i]
+      var distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
+      if (distInView < 0) {
+        elem.classList.remove("hidden");
+      } else {
+        elem.classList.add("hidden");
       }
-  } );
-  fadeIn();
+    }
+  });
 }
 
 enableFeatureIfPossible("Theme switcher", themeSwitcher);
