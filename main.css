@@ -328,7 +328,7 @@ footer p {
   text-align: center;
   width: 100%;
   background: var(--color--surface);
-  transition: 0.8s ease;
+  transition: 0.8s ease transform;
   transform: translateX(-24px);
 }
 
