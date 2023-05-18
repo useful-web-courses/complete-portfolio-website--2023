@@ -1,26 +1,26 @@
-/* section: css ||| video: fonts */
-
 @font-face {
-  font-family: 'poppins';
-  font-weight: 800;
-  src: url('fonts/poppins/extra_bold/extra_bold.woff2') format('woff2'),
-    url('fonts/poppins/extra_bold/extra_bold.woff') format('woff'),
-    url('fonts/poppins/extra_bold/extra_bold.ttf') format('truetype');
+    font-family: 'poppins';
+    font-weight: 800;
+    src: url('fonts/poppins/extra_bold/extra_bold.woff2') format('woff2'),
+        url('fonts/poppins/extra_bold/extra_bold.woff') format('woff'),
+        url('fonts/poppins/extra_bold/extra_bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'poppins';
-  font-weight: 500;
-  src: url('fonts/poppins/medium/medium.woff2') format('woff2'),
-    url('fonts/poppins/medium/medium.woff') format('woff'),
-    url('fonts/poppins/medium/medium.ttf') format('truetype');
+    font-family: 'poppins';
+    font-weight: 500;
+    src: url('fonts/poppins/medium/medium.woff2') format('woff2'),
+        url('fonts/poppins/medium/medium.woff') format('woff'),
+        url('fonts/poppins/medium/medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'poppins';
-  font-weight: 300;
-  src: url('fonts/poppins/light/light.woff2') format('woff2'),
-    url('fonts/poppins/light/light.woff') format('woff'),
+    font-family: 'poppins';
+    font-weight: 300;
+    src: url('fonts/poppins/light/light.woff2') format('woff2'),
+        url('fonts/poppins/light/light.woff') format('woff'),
+        url('fonts/poppins/light/light.ttf') format('truetype');
+}   url('fonts/poppins/light/light.woff') format('woff'),
     url('fonts/poppins/light/light.ttf') format('truetype');
 }
 
