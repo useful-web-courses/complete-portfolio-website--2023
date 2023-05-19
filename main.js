@@ -65,4 +65,30 @@ function imagePopUp() {
     });
 }
 
+function scrollReveal() {
+    validateFunctions(features.querySelector, features.querySelectorAll);
+
+    const elementsArray = document.querySelectorAll(".component--project-card");
+    elementsArray.forEach(element => {
+        element.classList.add("hidden");
+    });
+
+    window.addEventListener("scroll", fadeIn => {
+        let elementsArray = document.querySelectorAll(".component--project-card");
+
+        for (var i = 0; i < elementsArray.length; i++) {
+            var elem = elementsArray[i];
+
+            let distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
+            if (distInView < 0) {
+                elem.classList.remove("hidden");
+            } else {
+                elem.classList.add("hidden");
+            }
+        }
+    })
+    
+}
+
 enableFeatureIfSupported("image pop up", imagePopUp);
+enableFeatureIfSupported("scroll reveal", scrollReveal);
