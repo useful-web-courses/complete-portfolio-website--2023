@@ -90,5 +90,33 @@ function scrollReveal() {
     
 }
 
+function themeSwitcher() {
+    validateFunctions("querySelector", "querySelectorAll");
+
+    const headerTag = document.querySelector("header");
+
+    const imageTag = document.createElement("button");
+    imageTag.textContent = "Light theme";
+    imageTag.setAttribute("id", "theme-toggle");
+    imageTag.setAttribute("class", "theme-toggle");
+
+    imageTag.addEventListener("click", imageTag => {
+       const htmlTag = document.querySelector("html");
+
+        const currentTheme = htmlTag.dataSet.theme;
+
+        if (currentTheme === "dark") {
+            htmlTag.dataSet.theme = "light";
+            themeToggleButton.textContent = "Dark theme";
+        } else {
+            htmlTag.dataSet.theme = "dark";
+            themeToggleButton.textContent = "Light theme";
+        }
+    });
+
+    headerTag.appendChild(imageTag);
+}
+
 enableFeatureIfSupported("image pop up", imagePopUp);
 enableFeatureIfSupported("scroll reveal", scrollReveal);
+enableFeatureIfSupported("Theme switcher", themeSwitcher);
