@@ -318,3 +318,16 @@ img, video {
 .section--projects a img, .section--projects a video {
     display: block;
 }
+
+@media screen and (min-width: 1024px) {
+    .sub-container--projects {
+        flex-direction: row;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .container--backstory-and-contact-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
