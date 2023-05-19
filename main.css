@@ -268,3 +268,53 @@ img, video {
     max-width: 100%;
     padding: 0;
 }
+
+.section--welcome {
+    box-sizing: border-box;
+
+    max-width: 768px;
+    margin: auto;
+
+    padding: var(--space--medium);
+    padding-bottom: 0;
+
+    text-align: right;
+    width: 100%;
+}
+
+.section--welcome video {
+    border: 2px solid var(--color--text-primary);
+    opacity: 0;
+}
+
+.section--projects {
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: var(--space--medium);
+    padding: 0 var(--space--medium);
+}
+
+.section--projects video {
+    cursor: pointer;
+}
+
+.section--projects h3 {
+    margin-bottom: var(--space--small);
+}
+
+.section--about {
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: var(--space--medium);
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+}
+
+.section--about .header {
+    text-align: center;
+}
+
+.section--projects a img, .section--projects a video {
+    display: block;
+}
