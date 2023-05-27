@@ -187,7 +187,6 @@ footer p {
 
 .section--welcome video {
   border: 2px solid var(--color--text-primary);
-  opacity: 0;
 }
 
 .section--projects {
