@@ -218,7 +218,7 @@ video {
 .section--about {
   box-sizing: border-box;
   display: grid;
-  grid-gap: var(--space--large);
+  grid-gap: var(--space--medium);
   justify-content: center;
   justify-items: center;
   justify-self: center;
@@ -295,7 +295,6 @@ video {
   border-radius: var(--border--radius);
   box-sizing: border-box;
   overflow: hidden;
-  text-align: center;
   width: 100%;
   transition: transform 1s ease, opacity 0.4s ease;
 }
@@ -362,8 +361,9 @@ video {
 .part--project-info {
   padding: var(--space--small);
   box-sizing: border-box;
-  display: grid;
+  display: flex;
   grid-gap: var(--space--tiny);
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 1024px) {
