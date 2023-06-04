@@ -1,0 +1,11 @@
+{
+  "setupTasks": [],
+
+  "tasks": {
+    "python http server": {
+      "name": "python http server",
+      "command": "python3 -m http.server",
+      "runAtStart": true
+    }
+  }
+}
