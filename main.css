@@ -9,7 +9,7 @@ html {
     --color--on-background: #ffffff;
     --color--on-background-faint: rgba(255, 255, 255, 0.5);
 
-    --color--link: #7c98f9;
+    --color--link: #5b7ceb;
     --color--on-link: #f9f9f9;
 
     --color--surface: #080808;
@@ -197,7 +197,6 @@ video {
 
 .section--welcome img {
     border-bottom: 8px solid var(--color--on-background);
-    max-width: 512px;
 }
 
 .section--projects {
@@ -205,6 +204,8 @@ video {
     display: grid;
     grid-gap: var(--space--medium);
     padding: var(--space--large);
+    max-width: 1536px;
+    margin: auto;
 }
 
 .section--projects video {
@@ -248,18 +249,23 @@ video {
 }
 
 .container--projects {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-gap: var(--space--medium);
 }
 
 .sub-container--projects {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-gap: var(--space--medium);
+    width: 100%;
 }
 
 .sub-sub-container--projects {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-gap: var(--space--medium);
+    width: 100%;
 }
 
 .container--backstory-and-contact-info {
@@ -378,12 +384,19 @@ video {
 @media screen and (min-width: 1024px) {
     .sub-container--projects {
         flex-direction: row;
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (min-width: 1536px) {
     .container--backstory-and-contact-info {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container--projects {
+        flex-direction: row;
+    }
+
+    .sub-container--projects {
+        flex-direction: row;
     }
 }
